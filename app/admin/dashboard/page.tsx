@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import { createClient } from '@/lib/supabase/server'
 import Link from 'next/link'
 import { PlusCircle, FileText, Settings, LayoutDashboard, Globe, FileEdit } from 'lucide-react'

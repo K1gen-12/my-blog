@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import { createClient } from '@/lib/supabase/server'
 import AboutEditForm from '@/components/admin/AboutEditForm'
 import { Settings } from 'lucide-react'

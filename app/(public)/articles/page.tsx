@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import { createClient } from '@/lib/supabase/server'
 import ArticleCard from '@/components/ArticleCard'
 import CategoryFilter from '@/components/CategoryFilter'

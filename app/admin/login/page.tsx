@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import LoginForm from '@/components/admin/LoginForm'
 import { Lock } from 'lucide-react'
 
