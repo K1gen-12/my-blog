@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-900 text-gray-100;
+  }
+}
+
+/* Markdown prose スタイリング */
+.prose {
+  @apply text-gray-300;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  @apply text-white;
+}
+
+.prose a {
+  @apply text-purple-400 hover:text-purple-300;
+}
+
+.prose code {
+  @apply text-purple-400 bg-gray-800 px-1 py-0.5 rounded;
+}
+
+.prose pre {
+  @apply bg-gray-800;
+}
+
+.prose pre code {
+  @apply bg-transparent p-0;
+}
+
+/* カスタムスクロールバー */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-600;
+}
