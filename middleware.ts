@@ -1,8 +1,8 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
-// 関数名を middleware から proxy に変更
-export async function proxy(request: NextRequest) {
+// 🔴 関数名を必ず「middleware」にする必要があります
+export async function middleware(request: NextRequest) {
   let response = NextResponse.next({
     request: {
       headers: request.headers,
@@ -18,7 +18,6 @@ export async function proxy(request: NextRequest) {
           return request.cookies.getAll()
         },
         setAll(cookiesToSet) {
-          // セット処理
           cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
           response = NextResponse.next({
             request: {
@@ -43,16 +42,12 @@ export async function proxy(request: NextRequest) {
   return response
 }
 
-// 🔴 ここを追加・修正！
+// 🔴 Cloudflare Pages 向けの Edge Runtime 設定
 export const config = {
-  runtime: 'edge', // Cloudflare向けにここで指定
+  runtime: 'edge', 
   matcher: [
     /*
      * 下記以外の全てのパスでミドルウェアを実行する
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
      */
     '/((?!api|_next/static|_next/image|favicon.ico).*)',
   ],
