@@ -44,7 +44,7 @@ export async function middleware(request: NextRequest) {
 
 // 🔴 Cloudflare Pages 向けの Edge Runtime 設定
 export const config = {
-  runtime: 'edge', 
+  runtime: 'experimental-edge', 
   matcher: [
     /*
      * 下記以外の全てのパスでミドルウェアを実行する
