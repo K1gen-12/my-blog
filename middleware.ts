@@ -43,7 +43,17 @@ export async function proxy(request: NextRequest) {
   return response
 }
 
-// matcher 設定はそのまま
+// 🔴 ここを追加・修正！
 export const config = {
-  matcher: ['/admin/:path*', '/((?!_next/static|_next/image|favicon.ico).*)'],
+  runtime: 'edge', // Cloudflare向けにここで指定
+  matcher: [
+    /*
+     * 下記以外の全てのパスでミドルウェアを実行する
+     * - api (API routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     */
+    '/((?!api|_next/static|_next/image|favicon.ico).*)',
+  ],
 }
